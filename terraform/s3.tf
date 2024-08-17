@@ -8,10 +8,12 @@ resource "aws_s3_bucket" "bucket_name" {
   }
 }
 
-resource "aws_s3_bucket_acl" "b_acl" {
-  bucket = aws_s3_bucket.bucket_name.id
-  acl    = "public-read"
-}
+#resource "aws_s3_bucket_acl" "b_acl" {
+#  bucket = aws_s3_bucket.bucket_name.id
+  #control_object_ownership = true
+ # object_ownership         = "ObjectWriter"
+ # acl    = "public-read"
+#}
 
 resource "aws_s3_bucket_website_configuration" "s3_website" {
   bucket = aws_s3_bucket.bucket_name.id
