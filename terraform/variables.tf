@@ -5,7 +5,7 @@ variable "BUCKET_NAME" {
 
 
 variable "DOMAIN_NAME" {
-  default = "\\052.williamofleming.com"
+  default = "williamofleming.com"
 }
 
 
