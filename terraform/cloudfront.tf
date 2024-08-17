@@ -17,6 +17,7 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
     domain_name              = aws_s3_bucket.bucket_name.bucket_regional_domain_name
     origin_access_control_id = aws_cloudfront_origin_access_control.S3_OAC.id
     origin_id                = local.s3_origin_id
+    features {}
   }
 
   enabled             = true
