@@ -21,15 +21,8 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
 
   enabled             = true
   is_ipv6_enabled     = true
-  comment             = "${var.DOMAIN_NAME} cloudfront distibution"
+  comment             = "CloudFront distribution for ${var.DOMAIN_NAME}"
   default_root_object = "index.html"
-
-  logging_config {
-    include_cookies = false
-    bucket          = "mylogs.s3.amazonaws.com"
-    prefix          = "myprefix"
-  }
-
 
   default_cache_behavior {
     allowed_methods  = ["GET", "HEAD"]
@@ -65,7 +58,7 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
   }
 
   viewer_certificate {
-  acm_certificate_arn            = aws_acm_certificate.certificate.arn
+  acm_certificate_arn            = aws_acm_certificate.acm_certificate.arn
   ssl_support_method             = "sni-only"
   minimum_protocol_version       = "TLSv1.2_2021"
 }
