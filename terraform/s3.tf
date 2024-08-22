@@ -8,6 +8,16 @@ resource "aws_s3_bucket" "bucket_name" {
   }
 }
 
+
+resource "aws_s3_bucket_public_access_block" "bucket_public_access_block" {
+  bucket = aws_s3_bucket.bucket_name.id
+
+  block_public_acls   = true
+  ignore_public_acls   = true
+  block_public_policy = true
+  restrict_public_buckets = true
+}
+
 #resource "aws_s3_bucket_acl" "b_acl" {
 #  bucket = aws_s3_bucket.bucket_name.id
   #control_object_ownership = true
