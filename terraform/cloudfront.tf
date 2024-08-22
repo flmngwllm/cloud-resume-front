@@ -12,7 +12,6 @@ locals {
   s3_origin_id = "S3-${var.BUCKET_NAME}"
 }
 
-
 resource "aws_cloudfront_distribution" "s3_distribution" {
   origin {
     domain_name              = aws_s3_bucket.bucket_name.bucket_regional_domain_name

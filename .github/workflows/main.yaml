@@ -74,6 +74,7 @@ jobs:
       run: terraform apply --auto-approve -input=false -parallelism=1
 
     - name: Deploy static site to S3 bucket
+      if: steps.apply.outcome == 'success'
       run: aws s3 sync ../frontend/  s3://${{ env.S3_BUCKET_NAME }} --delete
   
 
