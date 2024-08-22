@@ -25,7 +25,7 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
   default_root_object = "index.html"
   
 
-   aliases = ["www.${var.DOMAIN_NAME}"]
+   aliases = ["www.${var.DOMAIN_NAME}", "${var.DOMAIN_NAME}"]
 
 
   default_cache_behavior {
