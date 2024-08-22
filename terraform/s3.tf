@@ -11,6 +11,10 @@ resource "aws_s3_bucket" "bucket_name" {
 
 resource "aws_s3_bucket_public_access_block" "bucket_public_access_block" {
   bucket = aws_s3_bucket.bucket_name.id
+   depends_on = [
+    aws_iam_role_policy.cloudfront_policy,
+    aws_s3_bucket_policy.bucket_policy
+  ]
 
   block_public_acls   = true
   ignore_public_acls   = true
