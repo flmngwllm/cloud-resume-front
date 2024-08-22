@@ -18,12 +18,7 @@ resource "aws_s3_bucket_public_access_block" "bucket_public_access_block" {
   restrict_public_buckets = true
 }
 
-#resource "aws_s3_bucket_acl" "b_acl" {
-#  bucket = aws_s3_bucket.bucket_name.id
-  #control_object_ownership = true
- # object_ownership         = "ObjectWriter"
- # acl    = "public-read"
-#}
+
 
 resource "aws_s3_bucket_website_configuration" "s3_website" {
   bucket = aws_s3_bucket.bucket_name.id
@@ -42,14 +37,17 @@ resource "aws_s3_bucket_policy" "bucket_policy" {
   bucket = aws_s3_bucket.bucket_name.id
 
   policy = jsonencode({
-    Version = "2012-10-17"
+    Version = "2012-10-17",
     Statement = [
       {
-        Action   = "s3:GetObject"
-        Effect   = "Allow"
-        Resource = "${aws_s3_bucket.bucket_name.arn}/*"
-        Principal = {
-          AWS = "*"
+        Action = "s3:GetObject",
+        Effect = "Allow",
+        Resource = "arn:aws:s3:::${var.BUCKET_NAME}/*",
+        Principal = "*",
+        Condition = {
+          StringLike = {
+            "aws:Referer" = "https://${aws_cloudfront_distribution.s3_distribution.domain_name}/*"
+          }
         }
       }
     ]
