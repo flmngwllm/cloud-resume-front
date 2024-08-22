@@ -8,7 +8,6 @@ resource "aws_cloudfront_origin_access_control" "S3_OAC" {
 }
 
 
-
 locals {
   s3_origin_id = "S3-${var.BUCKET_NAME}"
 }
