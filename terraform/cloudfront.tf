@@ -25,11 +25,8 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
   default_root_object = "index.html"
   
 
-  aliases {
-    items = [
-      "www.williamofleming.com"
-    ]
-  }
+  aliases = "www.williamofleming.com"
+
 
   default_cache_behavior {
     allowed_methods  = ["GET", "HEAD"]
