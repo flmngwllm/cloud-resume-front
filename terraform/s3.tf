@@ -12,7 +12,7 @@ resource "aws_s3_bucket" "bucket_name" {
 resource "aws_s3_bucket_public_access_block" "bucket_public_access_block" {
   bucket = aws_s3_bucket.bucket_name.id
    depends_on = [
-    aws_iam_role_policy.iam_for_s3static,
+    aws_iam_role_policy.s3_policy,
     aws_s3_bucket_policy.bucket_policy
   ]
 
