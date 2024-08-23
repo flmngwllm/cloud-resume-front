@@ -9,7 +9,7 @@ resource "aws_s3_bucket" "bucket_name" {
 }
 
 
-resource "aws_s3_bucket_public_access_block" "bucket_public_access_block_initial" {
+resource "aws_s3_bucket_public_access_block" "initial" {
   bucket = aws_s3_bucket.bucket_name.id
 
   block_public_acls       = false
@@ -20,7 +20,7 @@ resource "aws_s3_bucket_public_access_block" "bucket_public_access_block_initial
 
 
 
-resource "aws_s3_bucket_public_access_block" "bucket_public_access_block_final" {
+resource "aws_s3_bucket_public_access_block" "final" {
   depends_on = [aws_s3_bucket_policy.bucket_policy]
 
   bucket = aws_s3_bucket.bucket_name.id
@@ -48,7 +48,7 @@ resource "aws_s3_bucket_website_configuration" "s3_website" {
 
 
 resource "aws_s3_bucket_policy" "bucket_policy" {
-  depends_on = [aws_s3_bucket_public_access_block_initial]
+  depends_on = [aws_s3_bucket_public_access_block.initial]
 
   bucket = aws_s3_bucket.bucket_name.id
 
