@@ -3,6 +3,76 @@ body {
   width: 25cm;
   height: 29.7cm;
   margin: 0 auto;
+  
+}
+
+#job-titles {
+  flex: 1;
+}
+
+#dates {
+  text-align: right;
+  flex-shrink: 0;
+  padding-left: 20px;
+}
+
+.add-exp{
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0px;
+}
+
+.job-titles{
+  flex: 1;
+  font-weight: bold;
+}
+
+.dates{
+  font-weight: bold;
+ 
+}
+
+.names{
+  font-weight: bold;
+}
+
+h1 {
+  font-weight: bold;
+  margin-bottom: 0px;
+  text-align: center;
+}
+
+h4 {
+  font-weight: bold;
+  text-decoration: underline;
+  margin-bottom: 0px;
+  
+}
+
+ul{
+  margin-top: 1px;
+
+}
+
+.add-exp .container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.add-exp li.container {
+  display: list-item;  
+  list-style-position: inside;   
+  padding-left: 0; 
+  margin-bottom: 0; 
+}
+
+#job-titles, #dates {
+  display: inline-block;
 }
 
 page {
