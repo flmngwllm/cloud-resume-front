@@ -14,7 +14,6 @@ resource "aws_iam_role" "iam_for_s3static" {
 }
 
 
-
 resource "aws_iam_role_policy" "s3_policy" {
   name   = "s3static_policy"
   role   = aws_iam_role.iam_for_s3static.id
