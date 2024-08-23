@@ -21,13 +21,13 @@ resource "aws_s3_bucket_public_access_block" "bucket_public_access_block_initial
 
 
 resource "aws_s3_bucket_public_access_block" "bucket_public_access_block_final" {
-   depends_on = [aws_s3_bucket_policy.bucket_policy]
+  depends_on = [aws_s3_bucket_policy.bucket_policy]
 
   bucket = aws_s3_bucket.bucket_name.id
 
-  block_public_acls   = true
-  ignore_public_acls   = true
-  block_public_policy = true
+  block_public_acls       = true
+  ignore_public_acls      = true
+  block_public_policy     = true
   restrict_public_buckets = true
 }
 
@@ -48,16 +48,17 @@ resource "aws_s3_bucket_website_configuration" "s3_website" {
 
 
 resource "aws_s3_bucket_policy" "bucket_policy" {
-  bucket = aws_s3_bucket.bucket_name.id
   depends_on = [aws_s3_bucket_public_access_block_initial]
+
+  bucket = aws_s3_bucket.bucket_name.id
 
   policy = jsonencode({
     Version = "2012-10-17",
     Statement = [
       {
-        Action = "s3:GetObject",
-        Effect = "Allow",
-        Resource = "arn:aws:s3:::${var.BUCKET_NAME}/*",
+        Action    = "s3:GetObject",
+        Effect    = "Allow",
+        Resource  = "arn:aws:s3:::${var.BUCKET_NAME}/*",
         Principal = "*",
         Condition = {
           StringLike = {
