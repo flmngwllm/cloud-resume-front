@@ -12,7 +12,7 @@ resource "aws_s3_bucket" "bucket_name" {
 resource "aws_s3_bucket_public_access_block" "bucket_public_access_block" {
   bucket = aws_s3_bucket.bucket_name.id
    depends_on = [
-    aws_iam_role_policy.cloudfront_policy,
+    aws_iam_role_policy.iam_for_s3static,
     aws_s3_bucket_policy.bucket_policy
   ]
 
@@ -36,6 +36,7 @@ resource "aws_s3_bucket_website_configuration" "s3_website" {
   }
 
 }
+
 
 resource "aws_s3_bucket_policy" "bucket_policy" {
   bucket = aws_s3_bucket.bucket_name.id
