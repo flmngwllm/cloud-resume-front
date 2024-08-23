@@ -59,12 +59,7 @@ resource "aws_s3_bucket_policy" "bucket_policy" {
         Action    = "s3:GetObject",
         Effect    = "Allow",
         Resource  = "arn:aws:s3:::${var.BUCKET_NAME}/*",
-        Principal = "*",
-        Condition = {
-          StringLike = {
-            "aws:Referer" = "https://${aws_cloudfront_distribution.s3_distribution.domain_name}/*"
-          }
-        }
+        Principal = "*"
       }
     ]
   })
