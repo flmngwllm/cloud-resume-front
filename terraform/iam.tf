@@ -8,6 +8,7 @@ data "aws_iam_policy_document" "assume_role" {
   }
 }
 
+
 resource "aws_iam_role" "iam_for_s3static" {
   name               = "iam_s3"
   assume_role_policy = data.aws_iam_policy_document.assume_role.json
