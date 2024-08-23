@@ -46,7 +46,6 @@ resource "aws_s3_bucket_website_configuration" "s3_website" {
 
 }
 
-
 resource "aws_s3_bucket_policy" "bucket_policy" {
   depends_on = [aws_s3_bucket_public_access_block.initial]
 
