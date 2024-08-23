@@ -21,8 +21,7 @@ resource "aws_s3_bucket_public_access_block" "bucket_public_access_block_initial
 
 
 resource "aws_s3_bucket_public_access_block" "bucket_public_access_block" {
-   depends_on = [
-    aws_s3_bucket_policy.bucket_policy,]
+   depends_on = [aws_s3_bucket_policy.bucket_policy]
 
   bucket = aws_s3_bucket.bucket_name.id
 
