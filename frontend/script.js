@@ -1,6 +1,6 @@
 async function get_visitors() {
     try {
-        let response = await fetch('https://cec4xjsouc.execute-api.us-east-1.amazonaws.com/Prod/counter', {
+        let response = await fetch('https://0olkggytug.execute-api.us-east-1.amazonaws.com/Prod/counter', {
             method: 'GET',
         });
         let data = await response.json()
