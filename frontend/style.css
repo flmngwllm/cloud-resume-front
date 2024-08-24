@@ -1,9 +1,9 @@
 body {
-  background: rgb(204,204,204); 
-  width: 25cm;
+  background: rgb(255, 255, 255);
+  width: 21cm;
   height: 29.7cm;
   margin: 0 auto;
-  
+  padding: 2cm;
 }
 
 #job-titles {
@@ -16,47 +16,59 @@ body {
   padding-left: 20px;
 }
 
-.add-exp{
+.add-exp {
   list-style-type: disc;
   padding-left: 20px;
+  margin: 0;
 }
 
 .container {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 0px;
+  margin-bottom: 5px; 
 }
 
-.job-titles{
+.pho-span {
   flex: 1;
   font-weight: bold;
 }
 
-.dates{
+.loc-span {
+  flex: 1;
   font-weight: bold;
- 
 }
 
-.names{
+.email-span {
+  font-weight: bold;
+}
+
+.job-titles {
+  flex: 1;
+  font-weight: bold;
+}
+
+.dates {
+  font-weight: bold;
+}
+
+.names {
   font-weight: bold;
 }
 
 h1 {
   font-weight: bold;
-  margin-bottom: 0px;
+  margin-bottom: 10px; /* Adjusted margin */
   text-align: center;
 }
 
 h4 {
   font-weight: bold;
   text-decoration: underline;
-  margin-bottom: 0px;
-  
+  margin-bottom: 3px; /* Adjusted margin */
 }
 
-ul{
-  margin-top: 1px;
-
+ul {
+  margin-top: 5px; 
 }
 
 .add-exp .container {
@@ -65,30 +77,26 @@ ul{
 }
 
 .add-exp li.container {
-  display: list-item;  
-  list-style-position: inside;   
-  padding-left: 0; 
-  margin-bottom: 0; 
+  display: list-item;
+  list-style-position: inside;
+  padding-left: 0;
+  margin-bottom: 0px; 
 }
 
 #job-titles, #dates {
   display: inline-block;
 }
 
-page {
+.page {
   background: white;
   display: block;
   margin: 0 auto;
-  margin-bottom: 0.5cm;
-  position: relative;
-}
-
-page[size="A4"] {  
-  width: 25cm;
-  height: 29.7cm; 
+  margin-bottom: 5px; 
+  width: 21cm;
+  height: 29.7cm;
 }
 
 @page {
-  size: 25cm 29.7cm;
+  size: A4; 
   margin: 0mm;
 }
