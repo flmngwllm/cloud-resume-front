@@ -2,7 +2,7 @@
 
 This is the frontend portion of my Cloud Resume Challenge project, built to showcase my cloud and DevOps skills. It’s a simple resume site hosted on AWS using modern services and infrastructure as code.
 
-## 🌐 Live Demo
+## 🌐 Live Site
 
 👉 [williamofleming.com](https://www.williamofleming.com)
 
