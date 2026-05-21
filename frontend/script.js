@@ -10,6 +10,7 @@ async function get_visitors() {
     } catch (err) {
         console.error(err);
     }
+    
 }
 
 
