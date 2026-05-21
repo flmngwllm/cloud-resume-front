@@ -64,20 +64,23 @@ jobs:
       working-directory: ./terraform
       run: terraform plan -no-color -input=false -out=tfplan 
 
-    - name: Terraform plan status
-      if: steps.plan.outcome == 'failure'
+    - name: Terraform plan
+      id: plan
+      if: contains(github.event.head_commit.message, '[infra]')
       working-directory: ./terraform
-      run: exit 1
+      run: terraform plan -no-color -input=false -out=tfplan 
 
     - name: Terraform apply 
       id: apply 
-      if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+      if: github.ref == 'refs/heads/main' && github.event_name == 'push' && contains(github.event.head_commit.message, '[infra]')
       working-directory: ./terraform
       run: terraform apply --auto-approve -input=false -parallelism=1
 
-
     - name: Deploy static site to S3 bucket
       if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-      run: aws s3 sync ../frontend/ s3://${{ env.S3_BUCKET_NAME }} --delete
+      working-directory: .
+      run: aws s3 sync frontend/ s3://${{ env.S3_BUCKET_NAME }} --delete
+
+    
   
 
